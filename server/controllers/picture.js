@@ -1,8 +1,8 @@
 const request = require('superagent');
 const Pictures = require('../models/picture.js');
 
-const CRUD = {
-  const Create: (req, res) => {
+const CRUD = (req, res) => {
+  const Create = (req, res) => {
     const albumId = req.body.albumId;
     const id = req.body.Id;
     const title = req.body.title;
@@ -21,7 +21,7 @@ const CRUD = {
       }
     });
   }
-  const Display: (req, res) => {
+  const Display = (req, res) => {
     Pictures.findAll(err, picture) => {
       if(err){
         return res.status(500);
@@ -30,7 +30,7 @@ const CRUD = {
     }
 
   }
-  const Update: (req, res) => {
+  const Update = (req, res) => {
     Pictures.findById(req.params.id,(err, picture) => {
       if(picture === undefined){
         return res.status(404).json('document doesn\'t exist');
@@ -53,7 +53,7 @@ const CRUD = {
       });
     });
   }
-  const Delete: (req, res) => {
+  const Delete = (req, res) => {
     Pictures.findById(req.params.id, (err, picture) => {
       if(err){
         return res.status(500);
