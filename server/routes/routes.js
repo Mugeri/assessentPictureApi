@@ -1,9 +1,9 @@
-const picture = require('../controllers/picture.js');
+const CRUD = require('../controllers/picture.js');
 
 const router = (app) => {
-  app.post('/api/create', picture.create);
-  app.get('api/display', picture.display);
-  app.put('api/update', picture.update);
-  app.delete('api/delete', picture.delete);
+  app.post('/api/create', CRUD.create);
+  app.get('api/display', CRUD.display);
+  app.put('api/update', CRUD.update);
+  app.delete('api/delete', CRUD.delete);
 }
 module.exports = router;
